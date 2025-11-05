@@ -1,0 +1,40 @@
+﻿<Window x:Class="Drawing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="繪圖程式" Height="600" Width="900">
+    <DockPanel>
+        <!-- 工具列 -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="LightCyan"  Margin="5">
+            <Button Content="Line" Click="Line_Click" Margin="3"/>
+            <Button Content="Rectangle" Click="Rectangle_Click" Margin="3"/>
+            <Button Content="Ellipse" Click="Ellipse_Click" Margin="3"/>
+            <Button Content="Polyline" Click="Polyline_Click" Margin="3"/>
+
+            <Separator Width="20"/>
+
+            <!-- 筆刷顏色 -->
+            <xctk:ColorPicker x:Name="StrokePicker" Width="120" SelectedColor="Black" Margin="3"/>
+            <!-- 填滿顏色 -->
+            <xctk:ColorPicker x:Name="FillPicker" Width="120" SelectedColor="Transparent" Margin="3"/>
+
+            <Separator Width="20"/>
+
+            <Button Content="橡皮擦" Click="Erase_Click" Margin="3"/>
+            <Button Content="清除畫布" Click="Clear_Click" Margin="3"/>
+
+            <Separator Width="20"/>
+
+            <Button Content="儲存 PNG" Click="SavePng_Click" Margin="3"/>
+            <Button Content="儲存 XAML" Click="SaveXaml_Click" Margin="3"/>
+            <Button Content="讀取 XAML" Click="LoadXaml_Click" Margin="3"/>
+        </StackPanel>
+
+        <!-- 繪圖區 -->
+        <Canvas x:Name="drawCanvas" Background="LightPink"
+                MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
+                MouseMove="Canvas_MouseMove"
+                MouseLeftButtonUp="Canvas_MouseLeftButtonUp"/>
+    </DockPanel>
+</Window>
+
